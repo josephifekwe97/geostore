@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+      - echo "Executing pre-build phase..."
+      # Add any pre-build commands or scripts here
+  build:
+    commands:
+      - echo "Executing build phase..."
+      # Add build commands here (e.g., compilation, packaging)
+  post_build:
+    commands:
+      - echo "Executing post-build phase..."
+      # Add any post-build commands or scripts here
+      # For example, you might upload artifacts to S3 or deploy to AWS CodeDeploy
+
+artifacts:
+  files: '**/*'
+  name: my-app
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
